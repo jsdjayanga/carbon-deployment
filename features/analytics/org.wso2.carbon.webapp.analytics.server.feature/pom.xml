@@ -62,7 +62,7 @@
                             <outputDirectory>src/main/resources</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>resources</directory>
+                                    <directory>../../../components/analytics/org.wso2.carbon.webapp.analytics/src/main/resources</directory>
                                     <includes>
                                         <include>build.properties</include>
                                         <include>conf/etc/bam-publisher.xml</include>
@@ -70,6 +70,7 @@
                                     </includes>
                                 </resource>
                             </resources>
+                            <overwrite>true</overwrite>
                         </configuration>
                     </execution>
                 </executions>
