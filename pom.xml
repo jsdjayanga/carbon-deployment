@@ -20,12 +20,12 @@
         <module>components/service-mgt</module>
         <module>components/webapp-mgt</module>
         <module>components/javaee</module>
-        <module>components/monitoring</module>
+        <module>components/analytics</module>
         <module>features/as-runtimes</module>
         <module>features/service-mgt</module>
         <module>features/webapp-mgt</module>
         <module>features/javaee</module>
-        <module>features/monitoring</module>
+        <module>features/analytics</module>
     </modules>
 
     <scm>
@@ -743,19 +743,18 @@
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.deployment</groupId>
-                <artifactId>org.wso2.carbon.as.monitoring</artifactId>
-                <version>${carbon.deployment.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.wso2.carbon.deployment</groupId>
                 <artifactId>org.wso2.carbon.identity.entitlement.filter</artifactId>
                 <version>${carbon.deployment.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.wso2.carbon.deployment</groupId>
-                <artifactId>org.wso2.carbon.as.monitoring.feature</artifactId>
+                <artifactId>org.wso2.carbon.webapp.analytics</artifactId>
                 <version>${carbon.deployment.version}</version>
-                <type>zip</type>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.carbon.deployment</groupId>
+                <artifactId>org.wso2.carbon.webapp.analytics.ui</artifactId>
+                <version>${carbon.deployment.version}</version>
             </dependency>
 
             <!-- End of Carbon-Deployment Dependency -->

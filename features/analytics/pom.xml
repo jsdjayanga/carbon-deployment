@@ -25,13 +25,14 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>monitoring-feature</artifactId>
+    <artifactId>analytics-feature</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 Carbon - Monitoring Feature Aggregator Module</name>
+    <name>WSO2 Carbon - Analytics Feature Aggregator Module</name>
     <url>http://wso2.org</url>
 
     <modules>
-        <module>org.wso2.carbon.as.monitoring.feature</module>
-        <module>org.wso2.carbon.as.monitoring.ui.feature</module>
+        <module>org.wso2.carbon.webapp.analytics.server.feature</module>
+        <module>org.wso2.carbon.webapp.analytics.ui.feature</module>
+        <module>org.wso2.carbon.webapp.analytics.feature</module>
     </modules>
 </project>

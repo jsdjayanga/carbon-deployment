@@ -22,9 +22,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <name>WSO2 AS - Monitoring Module</name>
-    <description>The WSO2 Application Server Monitoring Module</description>
-    <artifactId>org.wso2.carbon.as.monitoring</artifactId>
+    <name>WSO2 AS - Analytics Module</name>
+    <description>The WSO2 Application Server Webapp Analytics Module</description>
+    <artifactId>org.wso2.carbon.webapp.analytics</artifactId>
     <packaging>bundle</packaging>
 
     <build>
@@ -46,7 +46,7 @@
                             org.wso2.carbon.webapp.analytics.AsMonitoringActivator
                         </Bundle-Activator>
                         <Export-Package>
-                            org.wso2.carbon.as.monitoring.*;version="${carbon.deployment.exp.pkg.version}"
+                            org.wso2.carbon.webapp.analytics.*;version="${carbon.deployment.exp.pkg.version}"
                         </Export-Package>
                         <Import-Package>
                             javax.servlet;version="${imp.pkg.version.javax.servlet}",

@@ -19,13 +19,13 @@
 
     <parent>
         <groupId>org.wso2.carbon.deployment</groupId>
-        <artifactId>monitoring-feature</artifactId>
+        <artifactId>analytics-feature</artifactId>
         <version>4.4.2-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>org.wso2.carbon.as.monitoring.feature</artifactId>
+    <artifactId>org.wso2.carbon.webapp.analytics.server.feature</artifactId>
     <packaging>pom</packaging>
     <name>WSO2 Carbon - Monitoring BAM Publisher Feature</name>
     <url>http://wso2.org</url>
@@ -38,7 +38,8 @@
     <dependencies>
         <dependency>
             <groupId>org.wso2.carbon.deployment</groupId>
-            <artifactId>org.wso2.carbon.as.monitoring</artifactId>
+            <artifactId>org.wso2.carbon.webapp.analytics</artifactId>
+            <version>4.4.2-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>ua.parser.wso2</groupId>
@@ -84,7 +85,7 @@
                             <goal>p2-feature-gen</goal>
                         </goals>
                         <configuration>
-                            <id>org.wso2.carbon.as.monitoring</id>
+                            <id>org.wso2.carbon.webapp.analytics.server</id>
                             <propertiesFile>../../../features/etc/feature.properties</propertiesFile>
                             <adviceFile>
                                 <properties>
@@ -99,7 +100,7 @@
                                     ua.parser.wso2:ua-parser:${ua.parser.version}
                                 </bundleDef>
                                 <bundleDef>
-                                    org.wso2.carbon.deployment:org.wso2.carbon.as.monitoring:${carbon.deployment.version}
+                                    org.wso2.carbon.deployment:org.wso2.carbon.webapp.analytics:${carbon.deployment.version}
                                 </bundleDef>
                             </bundles>
                             <importFeatures>

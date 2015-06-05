@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.wso2.carbon.deployment</groupId>
+        <artifactId>analytics-feature</artifactId>
+        <version>4.4.2-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>pom</packaging>
+    <name>WSO2 Carbon - AS HTTP Analytics Feature</name>
+    <url>http://wso2.org</url>
+    <description>This feature contains the dashboard for Application Server HTTP monitoring</description>
+
+    <artifactId>org.wso2.carbon.webapp.analytics.feature</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.wso2.carbon.deployment</groupId>
+            <artifactId>org.wso2.carbon.webapp.analytics.server.feature</artifactId>
+            <version>4.4.2-SNAPSHOT</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.carbon.deployment</groupId>
+            <artifactId>org.wso2.carbon.webapp.analytics.ui.feature</artifactId>
+            <version>4.4.2-SNAPSHOT</version>
+            <type>zip</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.wso2.maven</groupId>
+                <artifactId>carbon-p2-plugin</artifactId>
+                <version>${carbon.p2.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>p2-feature-generation</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>p2-feature-gen</goal>
+                        </goals>
+                        <configuration>
+                            <id>org.wso2.carbon.deployment.analytics</id>
+                            <propertiesFile>../../../features/etc/feature.properties</propertiesFile>
+                            <importFeatures>
+                                <importFeatureDef>org.wso2.carbon.core.server:${carbon.kernel.version}</importFeatureDef>
+                                <importFeatureDef>org.wso2.carbon.databridge.datapublisher:${carbon.commons.version}</importFeatureDef>
+                            </importFeatures>
+                            <includedFeatures>
+                                <includedFeatureDef>org.wso2.carbon.deployment:org.wso2.carbon.webapp.analytics.server.feature</includedFeatureDef>
+                                <includedFeatureDef>org.wso2.carbon.deployment:org.wso2.carbon.webapp.analytics.ui.feature</includedFeatureDef>
+                            </includedFeatures>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
