@@ -1447,6 +1447,7 @@
         <orbit.version.spring>3.2.9.wso2v1</orbit.version.spring>
         <imp.pkg.version.spring>[3.2.9.wso2v1, 3.3.0)</imp.pkg.version.spring>
         <org.scannotation.version>1.0.3</org.scannotation.version>
+        <shindig.feature.version>1.0.1-SNAPSHOT</shindig.feature.version>
 
         <orbit.version.commons.fileuploader>1.2.0.wso2v1</orbit.version.commons.fileuploader>
         <orbit.version.woden>1.0.0.M8-wso2v1</orbit.version.woden>
