@@ -19,7 +19,7 @@
 var caramel = require('caramel');
 
 caramel.configs({
-    context: '/dashboard',
+    context: '/webapp-analytics',
     cache: true,
     negotiation: true,
     themer: function () {

@@ -19,7 +19,7 @@
     </ModulePrefs>
     <UserPref name="dataSource"
               display_name="Data Source"
-              default_value="https://localhost:9453/dashboard/gadgets/bar-chart/datasource/dataFile4.jag">
+              default_value="https://localhost:9453/webapp-analytics/gadgets/bar-chart/datasource/dataFile4.jag">
     </UserPref>
     <UserPref name="appname"
               display_name="Web App Name"

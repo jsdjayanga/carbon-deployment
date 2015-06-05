@@ -22,7 +22,7 @@
     </ModulePrefs>
     <UserPref name="dataSource"
               display_name="Data Source"
-              default_value="/publisher/config/defaults/gadgets/stacked-line-chart/datasource/dataFile1.jag">
+              default_value="https://localhost:9453/webapp-analytics/gadgets/stacked-line-chart/datasource/dataFile1.jag">
     </UserPref>
     <UserPref name="startTime"
               display_name="Start time"
