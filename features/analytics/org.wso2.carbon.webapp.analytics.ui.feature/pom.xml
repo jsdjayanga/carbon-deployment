@@ -52,14 +52,10 @@
                             <outputDirectory>src/main/resources</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>resources</directory>
-                                    <includes>
-                                        <include>p2.inf</include>
-                                        <include>build.properties</include>
-                                        <include>monitoring</include>
-                                    </includes>
+                                    <directory>../../../components/analytics/org.wso2.carbon.webapp.analytics.ui/src/main/resources</directory>
                                 </resource>
                             </resources>
+                            <overwrite>true</overwrite>
                         </configuration>
                     </execution>
                 </executions>
