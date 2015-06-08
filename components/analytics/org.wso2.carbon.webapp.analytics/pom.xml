@@ -42,9 +42,9 @@
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Bundle-Activator>
-                            org.wso2.carbon.webapp.analytics.AsMonitoringActivator
-                        </Bundle-Activator>
+                        <!--<Bundle-Activator>-->
+                            <!--org.wso2.carbon.webapp.analytics.AsMonitoringActivator-->
+                        <!--</Bundle-Activator>-->
                         <Export-Package>
                             org.wso2.carbon.webapp.analytics.*;version="${carbon.deployment.exp.pkg.version}"
                         </Export-Package>
