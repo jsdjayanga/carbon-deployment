@@ -143,7 +143,7 @@ public class WebAppMonitoringPublisherValve extends ValveBase {
 
         // No exclusion pattern set.
         // No exclusions so.
-        return true;
+        return false;
     }
 
     /*
