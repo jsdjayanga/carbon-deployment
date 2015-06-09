@@ -17,17 +17,7 @@
  * under the License.
  */
 
-var username = session.get('username');
-if(username == null){
-    response.sendRedirect("login.jag");
-}
-
-var caramel = require('caramel');
-caramel.render({
-    nav: {'device-type': true},
-    error: [],
-    config: require('/config/config.json')
-});
-
+session.invalidate();
+response.sendRedirect("index.jag");
 
 %>

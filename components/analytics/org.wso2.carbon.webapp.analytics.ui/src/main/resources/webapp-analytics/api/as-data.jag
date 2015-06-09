@@ -17,6 +17,11 @@
  * under the License.
  */
 
+var username = session.get('username');
+if(username == null){
+    response.sendRedirect("login.jag");
+}
+
 // define significant number of records to be displayed in charts
 var BROWSER_SIGNIFICANT = 4;
 var OS_SIGNIFICANT = 5;
@@ -48,9 +53,14 @@ function buildConditions() {
     var endTime = request.getParameter('end_time') || util.formatDate(new Date());
     var node = request.getParameter('node');
     var webapp = request.getParameter('appname');
+    var tenantId = session.get('tenantId');
     var where = [];
     var params = [];
 
+    if (tenantId != null) {
+        where.push('tenantId = ?');
+        params.push(tenantId);
+    }
     if (startTime != null) {
         where.push('time >= ?');
         params.push(startTime);
