@@ -82,6 +82,9 @@
                             </adviceFile>
                             <importFeatures>
                                 <importFeatureDef>org.wso2.carbon.dashboards.shindig:${shindig.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.jaggeryjs.modules.handlebars:${handlebars.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.jaggeryjs.modules.markdown:${markdown.feature.version}</importFeatureDef>
+                                <importFeatureDef>org.jaggeryjs.modules.caramel:${caramel.feature.version}</importFeatureDef>
                             </importFeatures>
                         </configuration>
                     </execution>
