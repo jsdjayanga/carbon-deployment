@@ -136,14 +136,15 @@ public class WebAppMonitoringPublisherValve extends ValveBase {
     }
 
     private boolean isExcludable(String url) {
-        if (pattern != null) {
-            Matcher matcher = pattern.matcher(url);
-            return matcher.find();
-        }
-
-        // No exclusion pattern set.
-        // No exclusions so.
-        return false;
+//        if (pattern != null) {
+//            Matcher matcher = pattern.matcher(url);
+//            return matcher.find();
+//        }
+//
+//        // No exclusion pattern set.
+//        // No exclusions so.
+//        return false;
+        return publisher.isExcludable(url);
     }
 
     /*

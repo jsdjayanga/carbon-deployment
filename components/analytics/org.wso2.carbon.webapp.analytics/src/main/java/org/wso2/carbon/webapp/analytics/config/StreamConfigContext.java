@@ -17,6 +17,9 @@
  */
 package org.wso2.carbon.webapp.analytics.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The configuration context for a give data stream
  */
@@ -29,6 +32,7 @@ public class StreamConfigContext {
     private String streamVersion;
     private String username;
     private String password;
+    private List<String> excludePatterns = new ArrayList<>();
 
     public String getNickName() {
         return nickName;
@@ -92,5 +96,13 @@ public class StreamConfigContext {
 
     public void setEnabled(boolean isEnabled) {
         this.isEnabled = isEnabled;
+    }
+
+    public void addExcludePattern(String pattern) {
+        excludePatterns.add(pattern);
+    }
+
+    public List<String> getExcludePatterns() {
+        return this.excludePatterns;
     }
 }

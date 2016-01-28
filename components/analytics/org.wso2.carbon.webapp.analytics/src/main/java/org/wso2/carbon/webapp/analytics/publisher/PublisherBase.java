@@ -29,6 +29,11 @@ import org.wso2.carbon.databridge.commons.Event;
 import org.wso2.carbon.databridge.commons.StreamDefinition;
 import org.wso2.carbon.databridge.commons.exception.MalformedStreamDefinitionException;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * Base class for all the BAM Publishers. There can be a separate publisher per each defined data stream.
@@ -41,9 +46,16 @@ public abstract class PublisherBase {
 
     protected volatile AsyncDataPublisher publisher;
 
+    private List<Pattern> excludePatterns = new ArrayList<>();
+
     public PublisherBase() throws BAMPublisherConfigurationException {
         final String streamName = getDataStreamName();
         configContext = StreamConfigurationReader.getInstance().getStreamConfiguration(streamName);
+
+        List<String> excludePatters = configContext.getExcludePatterns();
+        for (String s : excludePatters) {
+            this.excludePatterns.add(Pattern.compile(s));
+        }
     }
 
     /**
@@ -53,6 +65,16 @@ public abstract class PublisherBase {
      */
     public boolean isPublishable() {
         return configContext.isEnabled();
+    }
+
+    public boolean isExcludable(String url) {
+        for (Pattern p : excludePatterns) {
+            Matcher matcher = p.matcher(url);
+            if (matcher.find()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**

@@ -21,6 +21,7 @@ package org.wso2.carbon.webapp.analytics.config;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 import org.wso2.carbon.utils.CarbonUtils;
 import org.xml.sax.SAXException;
 
@@ -28,11 +29,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 
@@ -135,6 +137,11 @@ public class StreamConfigurationReader {
         streamConfigContext.setReceiverUrl(getValue(id, "receiverUrl"));
         streamConfigContext.setDescription(getValue(id, "description"));
 
+        List<String> excludePatterns = getValues(id, "exclude/pattern");
+        for (String s : excludePatterns) {
+            streamConfigContext.addExcludePattern(s);
+        }
+
         configCache.put(id, streamConfigContext);
         if (LOG.isDebugEnabled()) {
             LOG.debug("Configuration for Stream " + id + " is loaded to the cache successfully.");
@@ -154,5 +161,19 @@ public class StreamConfigurationReader {
         }
     }
 
+    private List<String> getValues(String id, String property) throws BAMPublisherConfigurationException {
+        List<String> values = new ArrayList<>();
+        String xPathQuery = String.format(XPATH_BASE, id, property);
+        try {
+            NodeList nodeList = (NodeList) xPath.compile(xPathQuery).evaluate(document, XPathConstants.NODESET);
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                values.add(i, nodeList.item(i).getFirstChild().getNodeValue());
+            }
+        } catch (XPathExpressionException e) {
+            final String message = "'" + property + "' of Stream '" + id + "' cannot be read from " + CONFIG_XML_FILE + ".";
+            throw new BAMPublisherConfigurationException(message, e);
+        }
+        return values;
+    }
 }
 
