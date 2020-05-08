@@ -27,7 +27,7 @@
     <groupId>org.wso2.carbon.deployment</groupId>
     <artifactId>org.wso2.carbon.deployment.parent</artifactId>
     <packaging>pom</packaging>
-    <version>5.2.0</version>
+    <version>5.2.0.0-SNAPSHOT</version>
     <name>WSO2 Carbon Deployment - Parent</name>
 
     <modules>
@@ -39,9 +39,9 @@
     </modules>
 
     <scm>
-        <url>https://github.com/wso2/carbon-deployment.git</url>
-        <developerConnection>scm:git:https://github.com/wso2/carbon-deployment.git</developerConnection>
-        <connection>scm:git:https://github.com/wso2/carbon-deployment.git</connection>
+        <url>https://github.com/jsdjayanga/carbon-deployment.git</url>
+        <developerConnection>scm:git:https://github.com/jsdjayanga/carbon-deployment.git</developerConnection>
+        <connection>scm:git:https://github.com/jsdjayanga/carbon-deployment.git</connection>
         <tag>v5.2.0</tag>
     </scm>
 
